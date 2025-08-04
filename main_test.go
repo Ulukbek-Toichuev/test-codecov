@@ -25,3 +25,23 @@ func TestIntMin(t *testing.T) {
 		})
 	}
 }
+
+func TestSum(t *testing.T) {
+	var tests = []struct {
+		a, b int
+		want int
+	}{
+		{10, 20, 30},
+		{-10, -20, -30},
+		{0, 0, 0},
+	}
+	for _, test := range tests {
+		name := fmt.Sprintf("case(%d,%d)", test.a, test.b)
+		t.Run(name, func(t *testing.T) {
+			got := Sum(test.a, test.b)
+			if got != test.want {
+				t.Errorf("got %d, want %d", got, test.want)
+			}
+		})
+	}
+}
